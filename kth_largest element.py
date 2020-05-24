@@ -11,6 +11,7 @@ def partition(arr,low,high):
     arr[j+1],arr[high]=arr[high],arr[j+1]
     return (j+1)
 def k_element(arr,k,low,high):
+    if low<=high:
 
 
         pi = partition(arr,low,high)
