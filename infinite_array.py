@@ -1,13 +1,16 @@
 def binary_search(arr,k,l,r):
+    while l<r:
+        mid=l+(l-r)//2
+        if arr[mid]==k:
+            return mid+1
+        elif arr[mid]>k:
+            return binary_search(arr,k,l,mid)
+        elif arr[mid]<k:
+            return binary_search(arr, k, mid+1,r)
+    return -1    
+        
 
-    mid=l+(l-r)//2
-    if arr[mid]==k:
-        return mid+1
-    elif arr[mid]>k:
-        return binary_search(arr,k,l,mid)
-    elif arr[mid]<k:
-
-        return binary_search(arr, k, mid+1,r)
+    
 
 
 def infinite_array(arr,k):
