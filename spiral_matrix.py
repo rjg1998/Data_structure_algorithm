@@ -1,4 +1,4 @@
-def spiralOrder(A):
+def spiral_Matrix(A):
     S = []
     top= 0
 
