@@ -1,38 +1,27 @@
 def max_area(arr):
 
     area=0
-    x=0
-    y=0
+
 
     for i in range (len(arr)):
-        for j in range (i-1,-1,-1):
-            x=i
-            if j==0:
-                if arr[j]<arr[i]:
-                    x=1
-                else:
-                    x=0
-            else:
-                if arr[j] < arr[i]:
-                    x = j + 1
-                    break
+        left_pointer = 0
+        righ_pointer = len(arr) - 1
+        for j in range (i-1,-1,-1):#check the index of smaller no. than ith no. in the left side of i
+            if arr[j] < arr[i]:
+                left_pointer = j + 1
+                break
 
-        for j in range(i+1,len(arr)):
-            y=i
-            if j==len(arr)-1:
-                if arr[j]<arr[i]:
-                    y=len(arr)-2
-                else:
-                    y=len(arr)-1
-            else:
-                if arr[j] < arr[i]:
-                    y = j - 1
-                    break
-        new_area= (y-x+1)*arr[i]
+        for j in range(i+1,len(arr)):#check the index of smaller no. than ith no. in the right side of i
+            if arr[j] < arr[i]:
+                righ_pointer = j - 1
+                break
+        #calculate the area
+        new_area= (righ_pointer-left_pointer+1)*arr[i]
         if new_area>area:
             area=new_area
 
     return area
-arr=[2,4,3,6,1,5,8,12]
-print(max_area(arr))
+arrs=[[2,4,3,6,1,5,8],[1,1,1,1],[1,0,1,0,1],[0,0,0,1],[1,2,3,4,5],[5,4,3,2,1]]
+for arr in arrs:
+    print(max_area(arr))
 
